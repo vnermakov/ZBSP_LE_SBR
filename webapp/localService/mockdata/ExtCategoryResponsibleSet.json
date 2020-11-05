@@ -1,0 +1,141 @@
+[{
+	"RESPONSIBLE_ID": 416,
+	"SURNAME": "Иванов",
+	"FIRST_NAME": "Иван",
+	"PATRONYMIC": "Иванович",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(416)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(416)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 2613,
+	"SURNAME": "Петров",
+	"FIRST_NAME": "Петр",
+	"PATRONYMIC": "Петрович",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(2613)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(2613)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 2584,
+	"SURNAME": "Сидоров",
+	"FIRST_NAME": "Сидор",
+	"PATRONYMIC": "Сидорович",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(2584)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(2584)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 7638,
+	"SURNAME": "SURNAME 4",
+	"FIRST_NAME": "FIRST_NAME 4",
+	"PATRONYMIC": "PATRONYMIC 4",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(7638)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(7638)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 8688,
+	"SURNAME": "SURNAME 5",
+	"FIRST_NAME": "FIRST_NAME 5",
+	"PATRONYMIC": "PATRONYMIC 5",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(8688)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(8688)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 8078,
+	"SURNAME": "SURNAME 6",
+	"FIRST_NAME": "FIRST_NAME 6",
+	"PATRONYMIC": "PATRONYMIC 6",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(8078)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(8078)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 591,
+	"SURNAME": "SURNAME 7",
+	"FIRST_NAME": "FIRST_NAME 7",
+	"PATRONYMIC": "PATRONYMIC 7",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(591)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(591)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 4053,
+	"SURNAME": "SURNAME 8",
+	"FIRST_NAME": "FIRST_NAME 8",
+	"PATRONYMIC": "PATRONYMIC 8",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(4053)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(4053)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 7826,
+	"SURNAME": "SURNAME 9",
+	"FIRST_NAME": "FIRST_NAME 9",
+	"PATRONYMIC": "PATRONYMIC 9",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(7826)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(7826)/toCategory"
+		}
+	}
+}, {
+	"RESPONSIBLE_ID": 6152,
+	"SURNAME": "SURNAME 10",
+	"FIRST_NAME": "FIRST_NAME 10",
+	"PATRONYMIC": "PATRONYMIC 10",
+	"__metadata": {
+		"uri": "ExtCategoryResponsibleSet(6152)",
+		"type": "NorthwindModel.ExtCategoryResponsible"
+	},
+	"toCategory": {
+		"__deferred": {
+			"uri": "ExtCategoryResponsibleSet(6152)/toCategory"
+		}
+	}
+}]

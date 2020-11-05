@@ -3,7 +3,7 @@
 	"CategoryName": "CategoryName 1",
 	"Description": "Description 1",
 	"Picture": "10000000010000001001010000101101",
-	"STATUS_ID": "STATUS_ID 1",
+	"STATUS_ID": "NEW",
 	"RESPONSIBLE_ID": 1,
 	"__metadata": {
 		"uri": "Categories(9)",
@@ -19,7 +19,7 @@
 	"CategoryName": "CategoryName 2",
 	"Description": "Description 2",
 	"Picture": "10001010101010000101010111001011",
-	"STATUS_ID": "STATUS_ID 2",
+	"STATUS_ID": "ACT",
 	"RESPONSIBLE_ID": 2,
 	"__metadata": {
 		"uri": "Categories(416)",
@@ -35,7 +35,7 @@
 	"CategoryName": "CategoryName 3",
 	"Description": "Description 3",
 	"Picture": "00101010110011010001101010010000",
-	"STATUS_ID": "STATUS_ID 3",
+	"STATUS_ID": "DEL",
 	"RESPONSIBLE_ID": 3,
 	"__metadata": {
 		"uri": "Categories(6671)",
@@ -51,7 +51,7 @@
 	"CategoryName": "CategoryName 4",
 	"Description": "Description 4",
 	"Picture": "11000010111010001000101010111101",
-	"STATUS_ID": "STATUS_ID 4",
+	"STATUS_ID": "NEW",
 	"RESPONSIBLE_ID": 1,
 	"__metadata": {
 		"uri": "Categories(2613)",
@@ -67,7 +67,7 @@
 	"CategoryName": "CategoryName 5",
 	"Description": "Description 5",
 	"Picture": "01001011110010011000100011001101",
-	"STATUS_ID": "STATUS_ID 5",
+	"STATUS_ID": "ACT",
 	"RESPONSIBLE_ID": 2,
 	"__metadata": {
 		"uri": "Categories(7960)",
@@ -83,7 +83,7 @@
 	"CategoryName": "CategoryName 6",
 	"Description": "Description 6",
 	"Picture": "11000010001011000010110001100100",
-	"STATUS_ID": "STATUS_ID 6",
+	"STATUS_ID": "DEL",
 	"RESPONSIBLE_ID": 3,
 	"__metadata": {
 		"uri": "Categories(2584)",
@@ -99,7 +99,7 @@
 	"CategoryName": "CategoryName 7",
 	"Description": "Description 7",
 	"Picture": "00000010100110010010010001111011",
-	"STATUS_ID": "STATUS_ID 7",
+	"STATUS_ID": "NEW",
 	"RESPONSIBLE_ID": 1,
 	"__metadata": {
 		"uri": "Categories(5101)",
@@ -115,7 +115,7 @@
 	"CategoryName": "CategoryName 8",
 	"Description": "Description 8",
 	"Picture": "01000011100011001101111010110110",
-	"STATUS_ID": "STATUS_ID 8",
+	"STATUS_ID": "ACT",
 	"RESPONSIBLE_ID": 2,
 	"__metadata": {
 		"uri": "Categories(7638)",
@@ -131,7 +131,7 @@
 	"CategoryName": "CategoryName 9",
 	"Description": "Description 9",
 	"Picture": "10000010100101001111110000001001",
-	"STATUS_ID": "STATUS_ID 9",
+	"STATUS_ID": "DEL",
 	"RESPONSIBLE_ID": 3,
 	"__metadata": {
 		"uri": "Categories(100)",
@@ -147,7 +147,7 @@
 	"CategoryName": "CategoryName 10",
 	"Description": "Description 10",
 	"Picture": "01011110011011010101000010100111",
-	"STATUS_ID": "STATUS_ID 10",
+	"STATUS_ID": "NEW",
 	"RESPONSIBLE_ID": 1,
 	"__metadata": {
 		"uri": "Categories(8688)",

@@ -1,0 +1,10 @@
+[{
+	"STATUS_ID": "NEW",
+	"DESCRIPTION": "Новая"
+}, {
+	"STATUS_ID": "ACT",
+	"DESCRIPTION": "Активная"
+}, {
+	"STATUS_ID": "DEL",
+	"DESCRIPTION": "Удаленная"
+}]
