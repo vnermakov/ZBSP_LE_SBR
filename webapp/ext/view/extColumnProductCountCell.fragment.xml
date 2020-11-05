@@ -1,0 +1,6 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="ZBSP_LE_SBR.zbsp_le_sbr.ext.controller.ListReportExt">
+	<Text text="Всего {
+			path: 'Products',
+			formatter: '.getProductCount'
+		} продуктов"/>
+</core:FragmentDefinition>
