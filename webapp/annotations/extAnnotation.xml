@@ -5,9 +5,18 @@
 	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470968/UI.xml?api=v2">
 		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
 	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
 	<edmx:DataServices>
 		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="ZBSP_LE_SBR-1.annotations.extAnnotation.NorthwindModel">
 			<Annotations Target="Metadata.Category">
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>STATUS_ID</PropertyPath>
+						<PropertyPath>RESPONSIBLE_ID</PropertyPath>
+					</Collection>
+				</Annotation>
 				<Annotation Term="UI.LineItem">
 					<Collection>
 						<Record Type="UI.DataField">
@@ -19,7 +28,58 @@
 						<Record Type="UI.DataField">
 							<PropertyValue Property="Value" Path="Description"/>
 						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value">
+								<Apply Function="odata.concat">
+									<Path>toExtCategoryResponsible/SURNAME</Path>
+									<Path>toExtCategoryResponsible/FIRST_NAME</Path>
+									<Path>toExtCategoryResponsible/PATRONYMIC</Path>
+								</Apply>
+							</PropertyValue>
+							<PropertyValue Property="Label" String="Responsible"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="STATUS_ID"/>
+						</Record>
 					</Collection>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Category/RESPONSIBLE_ID">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ExtCategoryResponsibleSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="RESPONSIBLE_ID"/>
+									<PropertyValue Property="ValueListProperty" String="RESPONSIBLE_ID"/>
+								</Record>
+								<Record Type="Common.ValueListParameterDisplayOnly">
+									<PropertyValue Property="ValueListProperty" String="SURNAME"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="SearchSupported" Bool="false"/>
+					</Record>
+				</Annotation>
+			</Annotations>
+			<Annotations Target="Metadata.Category/STATUS_ID">
+				<Annotation Term="Common.ValueList">
+					<Record Type="Common.ValueListType">
+						<PropertyValue Property="CollectionPath" String="ExtCategoryStatusSet"/>
+						<PropertyValue Property="Parameters">
+							<Collection>
+								<Record Type="Common.ValueListParameterIn">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="toExtCategoryStatus/STATUS_ID"/>
+									<PropertyValue Property="ValueListProperty" String="STATUS_ID"/>
+								</Record>
+								<Record Type="Common.ValueListParameterOut">
+									<PropertyValue Property="LocalDataProperty" PropertyPath="STATUS_ID"/>
+									<PropertyValue Property="ValueListProperty" String="STATUS_ID"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
 				</Annotation>
 			</Annotations>
 		</Schema>

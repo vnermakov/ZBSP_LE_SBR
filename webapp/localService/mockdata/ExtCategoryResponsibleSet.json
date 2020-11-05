@@ -1,5 +1,5 @@
 [{
-	"RESPONSIBLE_ID": 416,
+	"RESPONSIBLE_ID": 1,
 	"SURNAME": "Иванов",
 	"FIRST_NAME": "Иван",
 	"PATRONYMIC": "Иванович",
@@ -13,7 +13,7 @@
 		}
 	}
 }, {
-	"RESPONSIBLE_ID": 2613,
+	"RESPONSIBLE_ID": 2,
 	"SURNAME": "Петров",
 	"FIRST_NAME": "Петр",
 	"PATRONYMIC": "Петрович",
@@ -27,7 +27,7 @@
 		}
 	}
 }, {
-	"RESPONSIBLE_ID": 2584,
+	"RESPONSIBLE_ID": 3,
 	"SURNAME": "Сидоров",
 	"FIRST_NAME": "Сидор",
 	"PATRONYMIC": "Сидорович",

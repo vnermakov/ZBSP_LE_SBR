@@ -3,7 +3,7 @@
 		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
 			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
 			Namespace="NorthwindModel">
-			<EntityType Name="Category">
+			<EntityType Name="Category" sap:label="Category" sap:content-version="1">
 				<Key>
 					<PropertyRef Name="CategoryID"/>
 				</Key>
@@ -12,8 +12,8 @@
 				<Property Name="CategoryName" Type="Edm.String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false"/>
 				<Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false"/>
 				<Property Name="Picture" Type="Edm.Binary" Nullable="true" MaxLength="Max" FixedLength="false"/>
-				<Property Name="STATUS_ID" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" sap:unicode="false" MaxLength="3" Nullable="false" Type="Edm.String"/>
-				<Property Name="RESPONSIBLE_ID" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Responsible" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="STATUS_ID" sap:filterable="true" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" sap:unicode="false" MaxLength="3" Nullable="false" Type="Edm.String" sap:value-list="fixed-values"/>
+				<Property Name="RESPONSIBLE_ID" sap:filterable="true" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Responsible" Type="Edm.Int32" Nullable="false"/>
 				<NavigationProperty Name="Products" Relationship="NorthwindModel.FK_Products_Categories" FromRole="Categories" ToRole="Products"/>
 				<NavigationProperty Name="toExtCategoryStatus" ToRole="FromRole_FK_Categories_ExtCategoryStatus" FromRole="ToRole_FK_Categories_ExtCategoryStatus" Relationship="NorthwindModel.FK_Categories_ExtCategoryStatus"/>
 				<NavigationProperty Name="toExtCategoryResponsible" ToRole="FromRole_FK_Categories_ExtCategoryResponsible" FromRole="ToRole_FK_Categories_ExtCategoryResponsible" Relationship="NorthwindModel.FK_Categories_ExtCategoryResponsible"/>
@@ -541,10 +541,10 @@
 			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
 			Namespace="ODataWeb.Northwind.Model">
 			<EntityContainer xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="NorthwindEntities" p7:LazyLoadingEnabled="true"
-				m:IsDefaultEntityContainer="true">
+				m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
 				<EntitySet Name="Categories" EntityType="NorthwindModel.Category"/>
-				<EntitySet sap:content-version="1" Name="ExtCategoryStatusSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="NorthwindModel.ExtCategoryStatus"/>
-				<EntitySet sap:content-version="1" Name="ExtCategoryResponsibleSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="NorthwindModel.ExtCategoryResponsible"/>
+				<EntitySet sap:content-version="1" Name="ExtCategoryStatusSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="NorthwindModel.ExtCategoryStatus" sap:searchable="true" sap:semantics="fixed-values"/>
+				<EntitySet sap:content-version="1" Name="ExtCategoryResponsibleSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="NorthwindModel.ExtCategoryResponsible" sap:searchable="true"/>
 				<EntitySet Name="CustomerDemographics" EntityType="NorthwindModel.CustomerDemographic"/>
 				<EntitySet Name="Customers" EntityType="NorthwindModel.Customer"/>
 				<EntitySet Name="Employees" EntityType="NorthwindModel.Employee"/>
