@@ -1,5 +1,5 @@
 <edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
-	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+	<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0" xmlns:sap="http://www.sap.com/Protocols/SAPData">
 		<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
 			xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm"
 			Namespace="NorthwindModel">
@@ -12,8 +12,31 @@
 				<Property Name="CategoryName" Type="Edm.String" Nullable="false" MaxLength="15" Unicode="true" FixedLength="false"/>
 				<Property Name="Description" Type="Edm.String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false"/>
 				<Property Name="Picture" Type="Edm.Binary" Nullable="true" MaxLength="Max" FixedLength="false"/>
+				<Property Name="STATUS_ID" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" sap:unicode="false" MaxLength="3" Nullable="false" Type="Edm.String"/>
+				<Property Name="RESPONSIBLE_ID" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Responsible" Type="Edm.Int32" Nullable="false"/>
 				<NavigationProperty Name="Products" Relationship="NorthwindModel.FK_Products_Categories" FromRole="Categories" ToRole="Products"/>
+				<NavigationProperty Name="toExtCategoryStatus" ToRole="FromRole_FK_Categories_ExtCategoryStatus" FromRole="ToRole_FK_Categories_ExtCategoryStatus" Relationship="NorthwindModel.FK_Categories_ExtCategoryStatus"/>
+				<NavigationProperty Name="toExtCategoryResponsible" ToRole="FromRole_FK_Categories_ExtCategoryResponsible" FromRole="ToRole_FK_Categories_ExtCategoryResponsible" Relationship="NorthwindModel.FK_Categories_ExtCategoryResponsible"/>
 			</EntityType>
+			<EntityType sap:content-version="1" Name="ExtCategoryStatus">
+				<Key>
+					<PropertyRef Name="STATUS_ID"/>
+				</Key>
+				<Property Name="STATUS_ID" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Status" sap:unicode="false" MaxLength="3" Nullable="false" Type="Edm.String"/>
+				<Property Name="DESCRIPTION" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Description" sap:unicode="false" MaxLength="100" Nullable="false" Type="Edm.String"/>
+				<NavigationProperty Name="toCategory" ToRole="ToRole_FK_Categories_ExtCategoryStatus" FromRole="FromRole_FK_Categories_ExtCategoryStatus" Relationship="NorthwindModel.FK_Categories_ExtCategoryStatus"/>
+			</EntityType>
+			<EntityType sap:content-version="1" Name="ExtCategoryResponsible">
+				<Key>
+					<PropertyRef Name="RESPONSIBLE_ID"/>
+				</Key>
+				<Property Name="RESPONSIBLE_ID" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Responsible" Type="Edm.Int32" Nullable="false"/>
+				<Property Name="SURNAME" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Surname" sap:unicode="false" MaxLength="100" Nullable="false" Type="Edm.String"/>
+				<Property Name="FIRST_NAME" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="First name" sap:unicode="false" MaxLength="100" Nullable="false" Type="Edm.String"/>
+				<Property Name="PATRONYMIC" sap:filterable="false" sap:sortable="false" sap:updatable="false" sap:creatable="false" sap:label="Patronymic" sap:unicode="false" MaxLength="100" Nullable="false" Type="Edm.String"/>
+				<NavigationProperty Name="toCategory" ToRole="ToRole_FK_Categories_ExtCategoryResponsible" FromRole="FromRole_FK_Categories_ExtCategoryResponsible" Relationship="NorthwindModel.FK_Categories_ExtCategoryResponsible"/>
+			</EntityType>
+			
 			<EntityType Name="CustomerDemographic">
 				<Key>
 					<PropertyRef Name="CustomerTypeID"/>
@@ -371,6 +394,32 @@
 				<Property Name="OrderID" Type="Edm.Int32" Nullable="false"/>
 				<Property Name="Subtotal" Type="Edm.Decimal" Nullable="true" Precision="19" Scale="4"/>
 			</EntityType>
+			
+			<Association sap:content-version="1" Name="FK_Categories_ExtCategoryResponsible">
+				<End Type="NorthwindModel.ExtCategoryResponsible" Role="FromRole_FK_Categories_ExtCategoryResponsible" Multiplicity="0..1"/>
+				<End Type="NorthwindModel.Category" Role="ToRole_FK_Categories_ExtCategoryResponsible" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_FK_Categories_ExtCategoryResponsible">
+						<PropertyRef Name="RESPONSIBLE_ID"/>
+					</Principal>
+					<Dependent Role="ToRole_FK_Categories_ExtCategoryResponsible">
+						<PropertyRef Name="RESPONSIBLE_ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			<Association sap:content-version="1" Name="FK_Categories_ExtCategoryStatus">
+				<End Type="NorthwindModel.ExtCategoryStatus" Role="FromRole_FK_Categories_ExtCategoryStatus" Multiplicity="0..1"/>
+				<End Type="NorthwindModel.Category" Role="ToRole_FK_Categories_ExtCategoryStatus" Multiplicity="*"/>
+				<ReferentialConstraint>
+					<Principal Role="FromRole_FK_Categories_ExtCategoryStatus">
+						<PropertyRef Name="STATUS_ID"/>
+					</Principal>
+					<Dependent Role="ToRole_FK_Categories_ExtCategoryStatus">
+						<PropertyRef Name="STATUS_ID"/>
+					</Dependent>
+				</ReferentialConstraint>
+			</Association>
+			
 			<Association Name="FK_Products_Categories">
 				<End Role="Categories" Type="NorthwindModel.Category" Multiplicity="0..1"/>
 				<End Role="Products" Type="NorthwindModel.Product" Multiplicity="*"/>
@@ -494,6 +543,8 @@
 			<EntityContainer xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation" Name="NorthwindEntities" p7:LazyLoadingEnabled="true"
 				m:IsDefaultEntityContainer="true">
 				<EntitySet Name="Categories" EntityType="NorthwindModel.Category"/>
+				<EntitySet sap:content-version="1" Name="ExtCategoryStatusSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="NorthwindModel.ExtCategoryStatus"/>
+				<EntitySet sap:content-version="1" Name="ExtCategoryResponsibleSet" sap:updatable="false" sap:creatable="false" sap:pageable="false" sap:deletable="false" EntityType="NorthwindModel.ExtCategoryResponsible"/>
 				<EntitySet Name="CustomerDemographics" EntityType="NorthwindModel.CustomerDemographic"/>
 				<EntitySet Name="Customers" EntityType="NorthwindModel.Customer"/>
 				<EntitySet Name="Employees" EntityType="NorthwindModel.Employee"/>
@@ -523,6 +574,16 @@
 					<End Role="Categories" EntitySet="Categories"/>
 					<End Role="Products" EntitySet="Products"/>
 				</AssociationSet>
+				
+				<AssociationSet sap:content-version="1" Name="FK_Categories_ExtCategoryResponsibleSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="NorthwindModel.FK_Categories_ExtCategoryResponsible">
+					<End Role="FromRole_FK_Categories_ExtCategoryResponsible" EntitySet="ExtCategoryResponsibleSet"/>
+					<End Role="ToRole_FK_Categories_ExtCategoryResponsible" EntitySet="Categories"/>
+				</AssociationSet>
+				<AssociationSet sap:content-version="1" Name="FK_Categories_ExtCategoryStatusSet" sap:updatable="false" sap:creatable="false" sap:deletable="false" Association="NorthwindModel.FK_Categories_ExtCategoryStatus">
+					<End Role="FromRole_FK_Categories_ExtCategoryStatus" EntitySet="ExtCategoryStatusSet"/>
+					<End Role="ToRole_FK_Categories_ExtCategoryStatus" EntitySet="Categories"/>
+				</AssociationSet>
+				
 				<AssociationSet Name="FK_Orders_Customers" Association="NorthwindModel.FK_Orders_Customers">
 					<End Role="Customers" EntitySet="Customers"/>
 					<End Role="Orders" EntitySet="Orders"/>
